@@ -10,14 +10,22 @@ app.use(cors());
 app.use(express.json());
 
 const pool = mysql.createPool({
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
+  host: process.env.DB_HOST || process.env.MYSQLHOST || process.env.RAILWAY_DB_HOST || 'localhost',
+  port: Number(process.env.DB_PORT || process.env.MYSQLPORT || process.env.RAILWAY_DB_PORT || 3306),
+  user: process.env.DB_USER || process.env.MYSQLUSER || process.env.RAILWAY_DB_USER || 'root',
+  password: process.env.DB_PASSWORD || process.env.MYSQLPASSWORD || process.env.RAILWAY_DB_PASSWORD || '',
+  database: process.env.DB_NAME || process.env.MYSQLDATABASE || process.env.RAILWAY_DB_NAME || 'bikerio_db',
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
+});
+
+app.get('/', (_req, res) => {
+  res.json({ status: 'ok', message: 'bikerIO backend is running' });
+});
+
+app.get('/health', (_req, res) => {
+  res.json({ status: 'ok' });
 });
 
 app.get('/api/apps', async (req, res) => {
@@ -136,6 +144,8 @@ app.post('/api/orders', async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT, () => {
-  console.log(`Backend running on port ${process.env.PORT}`);
+const port = Number(process.env.PORT || 5000);
+
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Backend running on port ${port}`);
 });
