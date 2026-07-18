@@ -9,6 +9,7 @@ frontend/dist/
 # Ignore environment files
 .env
 backend/.env
+frontend/.env
 
 # Ignore logs
 npm-debug.log*
