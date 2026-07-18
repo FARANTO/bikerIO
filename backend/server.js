@@ -72,6 +72,70 @@ app.get('/api/apps/:id', async (req, res) => {
   }
 });
 
+app.get('/api/orders/:appId', async (req, res) => {
+  try {
+    const [orders] = await pool.query(
+      `SELECT order_id, status FROM orders WHERE app_id = ? ORDER BY order_id DESC LIMIT 1`,
+      [req.params.appId]
+    );
+
+    if (orders.length === 0) {
+      return res.json({ isOrdered: false, orderId: null, status: 'none' });
+    }
+
+    const latestOrder = orders[0];
+    res.json({
+      isOrdered: latestOrder.status === 'active',
+      orderId: latestOrder.order_id,
+      status: latestOrder.status,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to fetch order state' });
+  }
+});
+
+app.post('/api/orders', async (req, res) => {
+  try {
+    const { appId, action } = req.body;
+
+    if (!appId || !action) {
+      return res.status(400).json({ error: 'appId and action are required' });
+    }
+
+    if (action === 'add') {
+      const [result] = await pool.query(
+        `INSERT INTO orders (app_id, status) VALUES (?, 'active')`,
+        [appId]
+      );
+
+      return res.status(201).json({
+        success: true,
+        isOrdered: true,
+        orderId: result.insertId,
+      });
+    }
+
+    if (action === 'remove') {
+      const [result] = await pool.query(
+        `UPDATE orders SET status = 'removed' WHERE app_id = ? AND status = 'active' ORDER BY order_id DESC LIMIT 1`,
+        [appId]
+      );
+
+      return res.json({
+        success: true,
+        isOrdered: false,
+        updated: result.affectedRows > 0,
+      });
+    }
+
+    return res.status(400).json({ error: 'Unsupported action' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to update order' });
+  }
+});
+
 app.listen(process.env.PORT, () => {
   console.log(`Backend running on port ${process.env.PORT}`);
 });

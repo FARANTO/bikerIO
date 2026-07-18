@@ -8,8 +8,9 @@ import AppError from "../assets/images/App-Error.png";
 function AppDetails() {
   const { id } = useParams();
   const [app, setApp] = useState(null);
-  const [isInstalled, setIsInstalled] = useState(false);
+  const [isOrdered, setIsOrdered] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [isUpdatingOrder, setIsUpdatingOrder] = useState(false);
 
   useEffect(() => {
     const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
@@ -17,8 +18,17 @@ function AppDetails() {
       try {
         const response = await axios.get(`${apiUrl}/api/apps/${id}`);
         setApp(response.data);
+
         const savedApps = JSON.parse(localStorage.getItem("installedApps") || "[]");
-        setIsInstalled(savedApps.some((savedApp) => savedApp.id === response.data.id));
+        const isSaved = savedApps.some((savedApp) => savedApp.id === response.data.id);
+        setIsOrdered(isSaved);
+
+        try {
+          const orderResponse = await axios.get(`${apiUrl}/api/orders/${response.data.id}`);
+          setIsOrdered(orderResponse.data.isOrdered || isSaved);
+        } catch (orderError) {
+          console.error("Failed to fetch order state", orderError);
+        }
       } catch (error) {
         console.error("Failed to fetch app details", error);
         setApp(null);
@@ -52,16 +62,40 @@ function AppDetails() {
     );
   }
 
-  const handleInstall = () => {
-    const savedApps = JSON.parse(localStorage.getItem("installedApps") || "[]");
-    if (!savedApps.some((savedApp) => savedApp.id === app.id)) {
-      const updatedApps = [...savedApps, app];
+  const handleOrderToggle = async () => {
+    if (!app) return;
+
+    const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+    const action = isOrdered ? "remove" : "add";
+
+    try {
+      setIsUpdatingOrder(true);
+      const response = await axios.post(`${apiUrl}/api/orders`, {
+        appId: app.id,
+        action,
+      });
+
+      const savedApps = JSON.parse(localStorage.getItem("installedApps") || "[]");
+      const updatedApps = action === "add"
+        ? savedApps.some((savedApp) => savedApp.id === app.id)
+          ? savedApps
+          : [...savedApps, app]
+        : savedApps.filter((savedApp) => savedApp.id !== app.id);
+
       localStorage.setItem("installedApps", JSON.stringify(updatedApps));
+      setIsOrdered(response.data.isOrdered ?? action === "add");
+
+      toast.success(
+        action === "add"
+          ? `Successfully ordered ${app.title}!`
+          : `Removed ${app.title} from your orders.`
+      );
+    } catch (error) {
+      console.error("Failed to update order status", error);
+      toast.error("Unable to update your order right now.");
+    } finally {
+      setIsUpdatingOrder(false);
     }
-    
-    setIsInstalled(true);
-    // ✅ Use react-toastify
-    toast.success(`Successfully ordered ${app.title}!`);
   };
 
   const formatNumber = (num) => {
@@ -96,11 +130,11 @@ function AppDetails() {
             </div>
 
             <button 
-              onClick={handleInstall} 
-              disabled={isInstalled} 
-              className={`btn border-none px-8 text-white ${isInstalled ? "bg-gray-400" : "bg-[#00D084] hover:bg-[#00b573]"}`}
+              onClick={handleOrderToggle} 
+              disabled={isUpdatingOrder}
+              className={`btn border-none px-8 text-white ${isOrdered ? "bg-gray-400" : "bg-[#00D084] hover:bg-[#00b573]"}`}
             >
-              {isInstalled ? "Installed" : `Order Now (${app.size} MB)`}
+              {isUpdatingOrder ? "Updating..." : isOrdered ? "Remove Order" : `Order Now (${app.size} ft)`}
             </button>
           </div>
         </div>

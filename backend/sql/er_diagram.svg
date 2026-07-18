@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <rect width="1400" height="900" fill="#f8fafc"/>
+  <text x="700" y="60" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#0f172a">bikerIO ER Diagram</text>
+  <text x="700" y="95" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#475569">Entity Relationship Diagram and Relational Table Structure</text>
+
+  <rect x="180" y="150" width="420" height="320" rx="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="180" y="150" width="420" height="48" rx="16" fill="#2563eb"/>
+  <text x="390" y="182" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff">APPS</text>
+  <text x="220" y="235" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#111827">• id (PK) — INT</text>
+  <text x="220" y="265" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#111827">• title — VARCHAR(255)</text>
+  <text x="220" y="295" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#111827">• companyName — VARCHAR(255)</text>
+  <text x="220" y="325" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#111827">• image — VARCHAR(1000)</text>
+  <text x="220" y="355" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#111827">• description — TEXT</text>
+  <text x="220" y="385" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#111827">• size — INT</text>
+  <text x="220" y="415" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#111827">• reviews — INT</text>
+  <text x="220" y="445" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#111827">• ratingAvg — DECIMAL(2,1)</text>
+  <text x="220" y="475" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#111827">• downloads — BIGINT</text>
+
+  <rect x="800" y="150" width="420" height="300" rx="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="800" y="150" width="420" height="48" rx="16" fill="#16a34a"/>
+  <text x="1010" y="182" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff">RATINGS</text>
+  <text x="840" y="235" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#111827">• id (PK) — INT</text>
+  <text x="840" y="265" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#111827">• app_id (FK) — INT</text>
+  <text x="840" y="295" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#111827">• name — VARCHAR(20)</text>
+  <text x="840" y="325" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#111827">• count — INT</text>
+  <text x="840" y="360" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#111827">• FK: ratings.app_id → apps.id</text>
+
+  <line x1="600" y1="310" x2="800" y2="310" stroke="#64748b" stroke-width="3"/>
+  <polygon points="800,310 780,300 780,320" fill="#64748b"/>
+  <text x="700" y="292" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#334155">one-to-many</text>
+
+  <rect x="180" y="560" width="1040" height="280" rx="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <rect x="180" y="560" width="1040" height="48" rx="16" fill="#0f766e"/>
+  <text x="700" y="592" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff">Relational Tables</text>
+
+  <text x="230" y="645" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#0f172a">apps</text>
+  <text x="230" y="675" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#334155">id INT PRIMARY KEY</text>
+  <text x="230" y="700" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#334155">title VARCHAR(255) NOT NULL</text>
+  <text x="230" y="725" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#334155">companyName VARCHAR(255) NOT NULL</text>
+  <text x="230" y="750" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#334155">image VARCHAR(1000), description TEXT</text>
+  <text x="230" y="775" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#334155">size INT, reviews INT, ratingAvg DECIMAL(2,1), downloads BIGINT</text>
+
+  <text x="650" y="645" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#0f172a">ratings</text>
+  <text x="650" y="675" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#334155">id INT AUTO_INCREMENT PRIMARY KEY</text>
+  <text x="650" y="700" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#334155">app_id INT NOT NULL</text>
+  <text x="650" y="725" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#334155">name VARCHAR(20) NOT NULL</text>
+  <text x="650" y="750" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#334155">count INT NOT NULL</text>
+  <text x="650" y="775" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#334155">FOREIGN KEY (app_id) REFERENCES apps(id)</text>
+</svg>
