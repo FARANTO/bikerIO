@@ -9,16 +9,24 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const pool = mysql.createPool({
-  host: process.env.DB_HOST || process.env.MYSQLHOST || process.env.RAILWAY_DB_HOST || 'localhost',
+const dbConfig = {
+  host: process.env.DB_HOST || process.env.MYSQLHOST || process.env.RAILWAY_DB_HOST || null,
   port: Number(process.env.DB_PORT || process.env.MYSQLPORT || process.env.RAILWAY_DB_PORT || 3306),
-  user: process.env.DB_USER || process.env.MYSQLUSER || process.env.RAILWAY_DB_USER || 'root',
+  user: process.env.DB_USER || process.env.MYSQLUSER || process.env.RAILWAY_DB_USER || null,
   password: process.env.DB_PASSWORD || process.env.MYSQLPASSWORD || process.env.RAILWAY_DB_PASSWORD || '',
-  database: process.env.DB_NAME || process.env.MYSQLDATABASE || process.env.RAILWAY_DB_NAME || 'bikerio_db',
+  database: process.env.DB_NAME || process.env.MYSQLDATABASE || process.env.RAILWAY_DB_NAME || null,
+};
+
+const pool = mysql.createPool({
+  ...dbConfig,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
 });
+
+function hasDatabaseConfig() {
+  return Boolean(dbConfig.host && dbConfig.user && dbConfig.database);
+}
 
 app.get('/', (_req, res) => {
   res.json({ status: 'ok', message: 'bikerIO backend is running' });
@@ -29,6 +37,13 @@ app.get('/health', (_req, res) => {
 });
 
 app.get('/api/apps', async (req, res) => {
+  if (!hasDatabaseConfig()) {
+    return res.status(500).json({
+      error: 'Database is not configured yet.',
+      details: 'Set DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, and DB_NAME in Railway.',
+    });
+  }
+
   try {
     const [apps] = await pool.query(`
       SELECT a.id, a.title, a.companyName, a.image, a.description, a.size, a.reviews, a.ratingAvg, a.downloads
@@ -51,12 +66,19 @@ app.get('/api/apps', async (req, res) => {
     const data = apps.map((app) => ({ ...app, ratings: ratingsByApp[app.id] || [] }));
     res.json(data);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Failed to fetch apps' });
+    console.error('Failed to fetch apps:', error);
+    res.status(500).json({ error: 'Failed to fetch apps', details: error.message });
   }
 });
 
 app.get('/api/apps/:id', async (req, res) => {
+  if (!hasDatabaseConfig()) {
+    return res.status(500).json({
+      error: 'Database is not configured yet.',
+      details: 'Set DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, and DB_NAME in Railway.',
+    });
+  }
+
   try {
     const [apps] = await pool.query(
       `SELECT id, title, companyName, image, description, size, reviews, ratingAvg, downloads
@@ -75,12 +97,19 @@ app.get('/api/apps/:id', async (req, res) => {
 
     res.json({ ...apps[0], ratings });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Failed to fetch app details' });
+    console.error('Failed to fetch app details:', error);
+    res.status(500).json({ error: 'Failed to fetch app details', details: error.message });
   }
 });
 
 app.get('/api/orders/:appId', async (req, res) => {
+  if (!hasDatabaseConfig()) {
+    return res.status(500).json({
+      error: 'Database is not configured yet.',
+      details: 'Set DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, and DB_NAME in Railway.',
+    });
+  }
+
   try {
     const [orders] = await pool.query(
       `SELECT order_id, status FROM orders WHERE app_id = ? ORDER BY order_id DESC LIMIT 1`,
@@ -98,12 +127,19 @@ app.get('/api/orders/:appId', async (req, res) => {
       status: latestOrder.status,
     });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Failed to fetch order state' });
+    console.error('Failed to fetch order state:', error);
+    res.status(500).json({ error: 'Failed to fetch order state', details: error.message });
   }
 });
 
 app.post('/api/orders', async (req, res) => {
+  if (!hasDatabaseConfig()) {
+    return res.status(500).json({
+      error: 'Database is not configured yet.',
+      details: 'Set DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, and DB_NAME in Railway.',
+    });
+  }
+
   try {
     const { appId, action } = req.body;
 
@@ -139,8 +175,8 @@ app.post('/api/orders', async (req, res) => {
 
     return res.status(400).json({ error: 'Unsupported action' });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Failed to update order' });
+    console.error('Failed to update order:', error);
+    res.status(500).json({ error: 'Failed to update order', details: error.message });
   }
 });
 
