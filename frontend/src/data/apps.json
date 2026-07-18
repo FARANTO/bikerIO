@@ -1,0 +1,362 @@
+[
+  {
+    "image": "https://i.ibb.co.com/W4wP8fzJ/SUZUKI-Gixxer-Fi-ABS.png",
+    "title": "Suzuki Gixxer Fi ABS",
+    "companyName": "Suzuki",
+    "id": 1,
+    "description": "Powered by 155 cc which generates Maximum power 13.6ps@8000rpm.",
+    "size": 45,
+    "reviews": 12450,
+    "ratingAvg": 4.5,
+    "downloads": 500000,
+    "ratings": [
+      { "name": "1 star", "count": 500 },
+      { "name": "2 star", "count": 700 },
+      { "name": "3 star", "count": 1500 },
+      { "name": "4 star", "count": 4000 },
+      { "name": "5 star", "count": 5750 }
+    ]
+  },
+  {
+    "image": "https://i.ibb.co.com/qMJh8RVK/9cfe5830-0ed6-41f6-8e13-e1b35c1b35ce.png",
+    "title": "Yamaha FZS v2",
+    "companyName": "Yamaha",
+    "id": 2,
+    "description": "Maximum power 13 Bhp @ 8000 rpm and its maximum torque is 12.8 Nm @ 6000 rpm.",
+    "size": 60,
+    "reviews": 9800,
+    "ratingAvg": 4.3,
+    "downloads": 300000,
+    "ratings": [
+      { "name": "1 star", "count": 300 },
+      { "name": "2 star", "count": 600 },
+      { "name": "3 star", "count": 1200 },
+      { "name": "4 star", "count": 3500 },
+      { "name": "5 star", "count": 4200 }
+    ]
+  },
+  {
+    "image": "https://i.ibb.co.com/bMVK5LCT/ae3815ec-fa5e-44c9-87ec-f8205a86d0b8.png",
+    "title": "Yamaha FZS V3 ABS",
+    "companyName": "Yamaha",
+    "id": 3,
+    "description": "Maximum power 13 Bhp @ 8000 rpm and its maximum torque is 12.8 Nm @ 6000 rpm.",
+    "size": 30,
+    "reviews": 7400,
+    "ratingAvg": 4.2,
+    "downloads": 250000,
+    "ratings": [
+      { "name": "1 star", "count": 250 },
+      { "name": "2 star", "count": 500 },
+      { "name": "3 star", "count": 1100 },
+      { "name": "4 star", "count": 2700 },
+      { "name": "5 star", "count": 2850 }
+    ]
+  },
+  {
+    "image": "https://i.ibb.co.com/0pj80BLx/401c2786-b185-46dc-a149-9639b1079ca8.png",
+    "title": "Yamaha MT 15",
+    "companyName": "Yamaha",
+    "id": 4,
+    "description": "Maximum power 13 Bhp @ 8000 rpm and its maximum torque is 12.8 Nm @ 6000 rpm.",
+    "size": 75,
+    "reviews": 15800,
+    "ratingAvg": 4.6,
+    "downloads": 800000,
+    "ratings": [
+      { "name": "1 star", "count": 600 },
+      { "name": "2 star", "count": 800 },
+      { "name": "3 star", "count": 1800 },
+      { "name": "4 star", "count": 5200 },
+      { "name": "5 star", "count": 7400 }
+    ]
+  },
+  {
+    "image": "https://i.ibb.co.com/SXhsBKnx/8543d7e8-603b-49c5-976b-9454e55b77e7.png",
+    "title": "Yamaha FZS FI V4",
+    "companyName": "Yamaha",
+    "id": 5,
+    "description": "Maximum power 13 Bhp @ 8000 rpm and its maximum torque is 12.8 Nm @ 6000 rpm.",
+    "size": 55,
+    "reviews": 20300,
+    "ratingAvg": 4.7,
+    "downloads": 1200000,
+    "ratings": [
+      { "name": "1 star", "count": 700 },
+      { "name": "2 star", "count": 900 },
+      { "name": "3 star", "count": 2000 },
+      { "name": "4 star", "count": 6500 },
+      { "name": "5 star", "count": 10200 }
+    ]
+  },
+  {
+    "image": "https://i.ibb.co.com/PGB1XYRg/f50ff3f1-d75c-415f-97b0-c604207c747c.png",
+    "title": "Honda SP 125",
+    "companyName": "Honda",
+    "id": 6,
+    "description": "Maximum power 13 Bhp @ 8000 rpm and its maximum torque is 12.8 Nm @ 6000 rpm.",
+    "size": 50,
+    "reviews": 17800,
+    "ratingAvg": 4.4,
+    "downloads": 900000,
+    "ratings": [
+      { "name": "1 star", "count": 600 },
+      { "name": "2 star", "count": 900 },
+      { "name": "3 star", "count": 2000 },
+      { "name": "4 star", "count": 5800 },
+      { "name": "5 star", "count": 8500 }
+    ]
+  },
+  {
+    "image": "https://i.ibb.co.com/2YjJY4sm/493536df-2c60-47aa-8d49-41b7de337dee.png",
+    "title": "Yamaha R15M",
+    "companyName": "Yamaha",
+    "id": 7,
+    "description": "Maximum power 13 Bhp @ 8000 rpm and its maximum torque is 12.8 Nm @ 6000 rpm.",
+    "size": 65,
+    "reviews": 8700,
+    "ratingAvg": 4.4,
+    "downloads": 400000,
+    "ratings": [
+      { "name": "1 star", "count": 300 },
+      { "name": "2 star", "count": 500 },
+      { "name": "3 star", "count": 1400 },
+      { "name": "4 star", "count": 3200 },
+      { "name": "5 star", "count": 3300 }
+    ]
+  },
+  {
+    "image": "https://i.ibb.co.com/Q7Lm6Gdz/d0dff190-6e53-4829-96a5-583ce7f74df2.png",
+    "title": "Bajaj Discover 125 Disc",
+    "companyName": "Bajaj",
+    "id": 8,
+    "description": "Maximum power 13 Bhp @ 8000 rpm and its maximum torque is 12.8 Nm @ 6000 rpm.",
+    "size": 80,
+    "reviews": 11200,
+    "ratingAvg": 4.5,
+    "downloads": 600000,
+    "ratings": [
+      { "name": "1 star", "count": 400 },
+      { "name": "2 star", "count": 700 },
+      { "name": "3 star", "count": 1600 },
+      { "name": "4 star", "count": 3800 },
+      { "name": "5 star", "count": 4700 }
+    ]
+  },
+  {
+    "image": "https://i.ibb.co.com/pBrcSq4w/90a4007b-3e43-41f5-a05c-b472c86247c7.png",
+    "title": "Bajaj Pulsar N160",
+    "companyName": "Bajaj",
+    "id": 9,
+    "description": "Maximum power 13 Bhp @ 8000 rpm and its maximum torque is 12.8 Nm @ 6000 rpm.",
+    "size": 40,
+    "reviews": 6900,
+    "ratingAvg": 4.3,
+    "downloads": 200000,
+    "ratings": [
+      { "name": "1 star", "count": 200 },
+      { "name": "2 star", "count": 400 },
+      { "name": "3 star", "count": 1200 },
+      { "name": "4 star", "count": 2500 },
+      { "name": "5 star", "count": 2600 }
+    ]
+  },
+  {
+    "image": "https://picsum.photos/200?random=9",
+    "title": "GamerHub",
+    "companyName": "PlayVerse",
+    "id": 10,
+    "description": "Discover and connect with gamers worldwide.",
+    "size": 90,
+    "reviews": 13400,
+    "ratingAvg": 4.6,
+    "downloads": 700000,
+    "ratings": [
+      { "name": "1 star", "count": 500 },
+      { "name": "2 star", "count": 700 },
+      { "name": "3 star", "count": 1500 },
+      { "name": "4 star", "count": 4300 },
+      { "name": "5 star", "count": 6400 }
+    ]
+  },
+  {
+    "image": "https://picsum.photos/200?random=11",
+    "title": "Weatherly",
+    "companyName": "SkyNet",
+    "id": 11,
+    "description": "Real-time weather updates and forecasts.",
+    "size": 25,
+    "reviews": 5400,
+    "ratingAvg": 4.1,
+    "downloads": 150000,
+    "ratings": [
+      { "name": "1 star", "count": 200 },
+      { "name": "2 star", "count": 300 },
+      { "name": "3 star", "count": 1000 },
+      { "name": "4 star", "count": 2000 },
+      { "name": "5 star", "count": 1900 }
+    ]
+  },
+  {
+    "image": "https://picsum.photos/200?random=12",
+    "title": "BookNest",
+    "companyName": "Readify",
+    "id": 12,
+    "description": "Read and manage your favorite books digitally.",
+    "size": 35,
+    "reviews": 6200,
+    "ratingAvg": 4.2,
+    "downloads": 180000,
+    "ratings": [
+      { "name": "1 star", "count": 250 },
+      { "name": "2 star", "count": 350 },
+      { "name": "3 star", "count": 1100 },
+      { "name": "4 star", "count": 2300 },
+      { "name": "5 star", "count": 2200 }
+    ]
+  },
+  {
+    "image": "https://picsum.photos/200?random=13",
+    "title": "ShopCart",
+    "companyName": "EcomX",
+    "id": 13,
+    "description": "Shop online with deals and fast delivery.",
+    "size": 70,
+    "reviews": 21000,
+    "ratingAvg": 4.5,
+    "downloads": 1500000,
+    "ratings": [
+      { "name": "1 star", "count": 800 },
+      { "name": "2 star", "count": 1200 },
+      { "name": "3 star", "count": 2500 },
+      { "name": "4 star", "count": 7000 },
+      { "name": "5 star", "count": 9500 }
+    ]
+  },
+  {
+    "image": "https://picsum.photos/200?random=14",
+    "title": "Videofy",
+    "companyName": "StreamLabs",
+    "id": 14,
+    "description": "Watch and share videos with global audiences.",
+    "size": 85,
+    "reviews": 19500,
+    "ratingAvg": 4.6,
+    "downloads": 1100000,
+    "ratings": [
+      { "name": "1 star", "count": 700 },
+      { "name": "2 star", "count": 1000 },
+      { "name": "3 star", "count": 2200 },
+      { "name": "4 star", "count": 6000 },
+      { "name": "5 star", "count": 9600 }
+    ]
+  },
+  {
+    "image": "https://picsum.photos/200?random=15",
+    "title": "LangMate",
+    "companyName": "LinguaTech",
+    "id": 15,
+    "description": "Learn new languages with AI-powered lessons.",
+    "size": 48,
+    "reviews": 8900,
+    "ratingAvg": 4.4,
+    "downloads": 350000,
+    "ratings": [
+      { "name": "1 star", "count": 300 },
+      { "name": "2 star", "count": 500 },
+      { "name": "3 star", "count": 1400 },
+      { "name": "4 star", "count": 3200 },
+      { "name": "5 star", "count": 3500 }
+    ]
+  },
+  {
+    "image": "https://picsum.photos/200?random=16",
+    "title": "SecureVault",
+    "companyName": "CyberSafe",
+    "id": 16,
+    "description": "Keep your passwords and data secure with encryption.",
+    "size": 38,
+    "reviews": 4700,
+    "ratingAvg": 4.3,
+    "downloads": 120000,
+    "ratings": [
+      { "name": "1 star", "count": 150 },
+      { "name": "2 star", "count": 250 },
+      { "name": "3 star", "count": 900 },
+      { "name": "4 star", "count": 1800 },
+      { "name": "5 star", "count": 1600 }
+    ]
+  },
+  {
+    "id": 21,
+    "title": "Forest: Focus For Productivity",
+    "companyName": "seekrtech.com",
+    "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/0e/7e/3d/0e7e3d1a-6d1a-4d1a-8d1a-3d1a6d1a4d1a/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg",
+    "downloads": 9000000,
+    "ratingAvg": 4.8,
+    "reviews": 120000,
+    "size": 156,
+    "description": "Stay focused, be present. Forest is an app that helps you put down your phone and focused on what's more important in your life.",
+    "ratings": [
+      { "name": "5 star", "count": 10000 },
+      { "name": "4 star", "count": 6500 },
+      { "name": "3 star", "count": 2800 },
+      { "name": "2 star", "count": 1500 },
+      { "name": "1 star", "count": 800 }
+    ]
+  },
+  {
+    "id": 22,
+    "title": "SmPlan: ToDo List With Reminder",
+    "companyName": "productive.io",
+    "image": "https://cdn-icons-png.flaticon.com/512/2693/2693507.png",
+    "downloads": 8000000,
+    "ratingAvg": 4.9,
+    "reviews": 54000,
+    "size": 291,
+    "description": "This focus app takes the proven Pomodoro technique and makes it even more practical for modern lifestyles. Instead of just setting a timer, it builds a complete environment for deep work.",
+    "ratings": [
+      { "name": "5 star", "count": 11000 },
+      { "name": "4 star", "count": 6200 },
+      { "name": "3 star", "count": 2500 },
+      { "name": "2 star", "count": 1800 },
+      { "name": "1 star", "count": 900 }
+    ]
+  },
+  {
+    "id": 23,
+    "title": "FLIP - Focus Timer For Study",
+    "companyName": "flipcorp.app",
+    "image": "https://play-lh.googleusercontent.com/9-38-r8u_U9z-38-r8u_U9z-38-r8u_U9z",
+    "downloads": 5000000,
+    "ratingAvg": 4.7,
+    "reviews": 42000,
+    "size": 88,
+    "description": "FLIP can help you improve your study habits through a focus timer and detailed statistics of your study time.",
+    "ratings": [
+      { "name": "5 star", "count": 8000 },
+      { "name": "4 star", "count": 5000 },
+      { "name": "3 star", "count": 3000 },
+      { "name": "2 star", "count": 1000 },
+      { "name": "1 star", "count": 500 }
+    ]
+  },
+  {
+    "id": 24,
+    "title": "Pomocat - Cute Pomodoro Timer",
+    "companyName": "meowfocus.com",
+    "image": "https://play-lh.googleusercontent.com/meow-icon",
+    "downloads": 2000000,
+    "ratingAvg": 5.0,
+    "reviews": 15000,
+    "size": 45,
+    "description": "A cute cat-themed productivity timer that makes working fun. Collect virtual cats while you focus on your tasks!",
+    "ratings": [
+      { "name": "5 star", "count": 14000 },
+      { "name": "4 star", "count": 800 },
+      { "name": "3 star", "count": 100 },
+      { "name": "2 star", "count": 50 },
+      { "name": "1 star", "count": 50 }
+    ]
+  }
+]
